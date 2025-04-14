@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "caf20947-6a9b-46d4-8ca7-1b63477b98d9",
+		"name": "Grocery Management System",
+		"description": "Postman collection for Grocery Management System APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30462686"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"emailId\": \"john.doe@example.com\",\n  \"role\": \"Admin\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Groceries",
+			"item": [
+				{
+					"name": "Add Grocery",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Role",
+								"value": "Admin",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Banana\",\n  \"price\": 1.2,\n  \"description\": \"Fresh Banana\",\n  \"inventory\": 100\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/groceries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"groceries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Groceries",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "role",
+								"value": "User",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/groceries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"groceries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Grocery",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Role",
+								"value": "Admin",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Apple\",\n  \"price\": 1.2,\n  \"description\": \"Fresh apples\",\n  \"inventory\": 100\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/groceries/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"groceries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Grocery",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Role",
+								"value": "Admin",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/groceries/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"groceries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Inventory",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Role",
+								"value": "Admin",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"inventory\": 150\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/groceries/2/inventory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"groceries",
+								"2",
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Place Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": 1,\n  \"items\": [\n    { \"groceryId\": 2, \"quantity\": 5 },\n    { \"groceryId\": 3, \"quantity\": 10 }\n  ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
