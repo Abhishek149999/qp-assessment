@@ -38,3 +38,18 @@ The Grocery Management System is a web application designed to manage the operat
 
 ## Tips
 You may find the postman collection in this repo to executing the APIs.
+
+## Running the Containerized Application
+
+1. docker-compose build
+
+2. docker-compose up
+
+    Access the application at 
+    http://localhost:3000
+
+3. Stop the Containers:
+    docker-compose down
+
+## Tips
+To scale the application (e.g., run multiple instances of the app), use:
